@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>vue js</title>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.0/vue.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/0.8.3/jquery.csv.min.js"></script>
+	<!--<script type="text/javascript" src="node_modules/babyparse/babyparse.js"></script>-->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/4.3.5/papaparse.min.js"></script>
+	<script type="text/javascript" src="ipl.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.16.2/axios.min.js"></script>
+
+
+</head>
+<body>
+
+<div class="container">
+   <div class="table-responsive">
+    <h1 align="center">CSV File to HTML Table Using AJAX jQuery</h1>
+    <br />
+    <div align="center">
+
+    </div>
+    <br />
+    <div id="app">
+    {{status}}
+    </div>
+   </div>
+  </div>
+
+
+
+
+
+
+<script>
+
+var vm = new Vue({
+  el:'#app',
+  data:{
+    status:''
+  },
+  created:function(){
+    this.loadData();
+  },
+
+  methods:{
+    loadData:function(){
+      this.status ='Loading....';
+      var vm = this;
+      axios.get('./excel-files/matches.csv')
+      .then(function(res){
+
+        vm.status = res.data;
+
+        console.log(res.data)
+      })
+      .catch(function(err){
+        vm.status = 'An error occurred' + err;
+      })
+    }
+  }
+});
+
+</script>
+
+</body>
+</html>

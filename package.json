@@ -1,0 +1,19 @@
+{
+  "name": "vue-ipl-data",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "builds":"browserify",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "pavan",
+  "license": "ISC",
+  "dependencies": {
+    "babyparse": "^0.4.6",
+    "fast-csv": "^2.4.0"
+  },
+  "devDependencies": {
+    "browserify": "^14.4.0"
+  }
+}
